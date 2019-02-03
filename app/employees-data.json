@@ -1,0 +1,11 @@
+{
+    "data":[
+        {"firstName":"Lavanya","lastName":"Paspula","title":"Developer","department":["IT"]},
+        {"firstName":"Sharath","lastName":"Chelimela","title":"Analyst","department":["HR"]},
+        {"firstName":"Meghana","lastName":"Doe","title":"Tester","department":["Tax"]},
+        {"firstName":"Rathod","lastName":"Ramesh","title":"MD","department":["Sales"]},
+        {"firstName":"Mike","lastName":"Micheal","title":"SrAnalyst","department":["Tax"]},
+        {"firstName":"Ruby","lastName":"Rai","title":"MasterEngineer","department":["HR"]},
+        {"firstName":"Swapna","lastName":"Gajula","title":"Head","department":["Tax"]}
+    ]
+}

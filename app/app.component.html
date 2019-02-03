@@ -1,0 +1,66 @@
+<div>
+    <p-dataTable [value]="employees" selectionMode="single" [(selection)]="selectedEmployee" (onRowSelect)="onRowSelect($event)" [paginator]="true" [rows]="10" [responsive]="true">
+        <header>Employee Management</header>
+        <header>
+                <div class="ui-grid-row">
+            <div class="ui-helper-clearfix ui-grid-col-1" >
+                <button type="button" pButton icon="fa-plus" style="float:center" (click)="showDialogToAdd()" label="Add"></button>
+            </div>     
+            <div class="ui-helper-clearfix ui-grid-col-1" ><button type="button" pButton icon="fa-plus" style="float:center" (click)="showDialogToEdit()" label="Edit">
+            </button>
+        </div>      
+            <div class="ui-helper-clearfix ui-grid-col-1" >
+                    <p-dialog [style]="{width: '50vw'}" [(visible)]="display" [modal]="true">
+                           <span> Are you sure you want to delete a record?</span>           
+                           <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix"> 
+                               
+                                        <button type="button" pButton icon="fa-check" style="float:center" (click)="delete()" label="Yes"></button>
+                                        <button type="button" pButton icon="fa-check" style="float:center" (click)="closeDialog()" label="No"></button>
+                           </div>
+                               
+                    </p-dialog>
+                <button type="button" pButton icon="fa-close" style="float:center"  (click)="showDialogondelete()" label="Delete"></button>              
+            </div>
+                </div>
+        </header>
+        <p-column field="firstName" header="FirstName" [sortable]="true"></p-column>
+        <p-column field="lastName" header="LastName" [sortable]="true"></p-column>
+        <p-column field="title" header="Title" [sortable]="true"></p-column>
+        <p-column field="department" header="Department" [sortable]="true"></p-column>
+        <p-column field="department" header="Department" [sortable]="true"></p-column>
+        <p-column><p-multiSelect [options]="departments" [(ngModel)]="item"></p-multiSelect>
+        
+        </p-column>
+        <footer>Employee List@2019</footer>
+    </p-dataTable>
+
+    <p-dialog header="Employee Details" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true">
+        <div class="ui-grid ui-grid-responsive ui-fluid ui-grid-pad" *ngIf="employee">
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-4"><label for="firstName">FirstName</label></div>
+                <div class="ui-grid-col-8"><input pInputText id="firstName" [(ngModel)]="employee.firstName" /></div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-4"><label for="lastName">LastName</label></div>
+                <div class="ui-grid-col-8"><input pInputText id="brand" [(ngModel)]="employee.lastName" /></div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-4"><label for="title">Title</label></div>
+                <div class="ui-grid-col-8"><input pInputText id="brand" [(ngModel)]="employee.title" /></div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-4"><label for="department">Department</label></div>
+                <div class="ui-grid-col-8">
+                    <p-multiSelect [options]="departmentsLst" [(ngModel)]="selectedDepartMent"></p-multiSelect>
+                </div>
+
+            </div>
+        </div>
+		<footer>
+            <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">                
+                <button type="button" pButton icon="fa-check" (click)="save()" label="Save"></button>
+                <button type="button" pButton icon="fa-check" (click)="closeDialog()" label="Close"></button>
+            </div>           
+        </footer>
+    </p-dialog>    
+</div>
